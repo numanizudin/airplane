@@ -15,7 +15,7 @@ class GetStartedPage extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                  'assets/image_get_started.png',
+                  'assets/splash_image.png',
                 ),
               ),
             ),
@@ -53,10 +53,12 @@ class GetStartedPage extends StatelessWidget {
                     style: TextButton.styleFrom(
                       backgroundColor: kPrimaryColor,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(17),
+                        borderRadius: BorderRadius.circular(defaultRadius),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/sign-up');
+                    },
                     child: Text(
                       'Get Started',
                       style: whiteTextStyle.copyWith(

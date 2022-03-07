@@ -170,7 +170,9 @@ class SignUpPage extends StatelessWidget {
           width: double.infinity,
           height: 50,
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/bonus');
+            },
             style: TextButton.styleFrom(
               backgroundColor: kPrimaryColor,
               shape: RoundedRectangleBorder(
@@ -180,7 +182,7 @@ class SignUpPage extends StatelessWidget {
               ),
             ),
             child: Text(
-              'Get Started',
+              'Sign Up',
               style: whiteTextStyle.copyWith(
                 fontSize: 18,
                 fontWeight: medium,

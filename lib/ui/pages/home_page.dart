@@ -1,5 +1,6 @@
 import 'package:airplane/shared/theme.dart';
 import 'package:airplane/ui/widgets/destination_card.dart';
+import 'package:airplane/ui/widgets/destination_tile.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -65,31 +66,31 @@ class HomePage extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              DestionationCard(
+              DestinationCard(
                 name: 'Lake Cipeles',
                 city: 'Sumedang',
                 imageUrl: 'assets/image_destination1.png',
                 rating: 4.8,
               ),
-              DestionationCard(
+              DestinationCard(
                 name: 'White Houses',
                 city: 'Spain',
                 imageUrl: 'assets/image_destination2.png',
                 rating: 4.7,
               ),
-              DestionationCard(
+              DestinationCard(
                 name: 'Hill Heyo',
                 city: 'Monaco',
                 imageUrl: 'assets/image_destination3.png',
                 rating: 4.8,
               ),
-              DestionationCard(
+              DestinationCard(
                 name: 'Menarra',
                 city: 'Japan',
                 imageUrl: 'assets/image_destination4.png',
                 rating: 5.0,
               ),
-              DestionationCard(
+              DestinationCard(
                 name: 'Payung Teduh',
                 city: 'Singapore',
                 imageUrl: 'assets/image_destination5.png',
@@ -101,10 +102,33 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget newDestination() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 30,
+          left: defaultMargin,
+          right: defaultMargin,
+        ),
+        child: Column(
+          children: [
+            Text(
+              'New This Year',
+              style: blackTextStyle.copyWith(
+                fontSize: 18,
+                fontWeight: semiBold,
+              ),
+            ),
+            DestinationTile(),
+          ],
+        ),
+      );
+    }
+
     return ListView(
       children: [
         header(),
         popularDestination(),
+        newDestination(),
       ],
     );
   }

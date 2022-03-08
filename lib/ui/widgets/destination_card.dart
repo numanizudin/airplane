@@ -1,13 +1,13 @@
 import 'package:airplane/shared/theme.dart';
 import 'package:flutter/material.dart';
 
-class DestionationCard extends StatelessWidget {
+class DestinationCard extends StatelessWidget {
   final String name;
   final String city;
   final String imageUrl;
   final double rating;
 
-  const DestionationCard({
+  const DestinationCard({
     Key? key,
     required this.name,
     required this.city,

@@ -24,6 +24,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => PageCubit(),
         ),
+        BlocProvider(
+          create: (context) => PageCubit(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

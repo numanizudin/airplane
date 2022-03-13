@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:airplane/shared/theme.dart';
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  SignUpPage({Key? key}) : super(key: key);
+
+  TextEditingController nameController = TextEditingController(text: '');
+  TextEditingController emailController = TextEditingController(text: '');
+  TextEditingController passwordController = TextEditingController(text: '');
+  TextEditingController hobbyController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +31,7 @@ class SignUpPage extends StatelessWidget {
         return CustomTextFormField(
           title: 'Name',
           hintText: 'Your Name',
+          controller: nameController,
         );
       }
 
@@ -33,6 +39,7 @@ class SignUpPage extends StatelessWidget {
         return CustomTextFormField(
           title: 'Email Address',
           hintText: 'Email',
+          controller: emailController,
         );
       }
 
@@ -40,6 +47,7 @@ class SignUpPage extends StatelessWidget {
         return CustomTextFormField(
           title: 'Password',
           hintText: 'Password',
+          controller: passwordController,
           obscureText: true,
         );
       }
@@ -48,6 +56,7 @@ class SignUpPage extends StatelessWidget {
         return CustomTextFormField(
           title: 'Hobby',
           hintText: 'Hobby',
+          controller: hobbyController,
         );
       }
 

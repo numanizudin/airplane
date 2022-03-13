@@ -5,14 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:airplane/shared/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SignUpPage extends StatelessWidget {
-  SignUpPage({Key? key}) : super(key: key);
+class SignInPage extends StatelessWidget {
+  SignInPage({Key? key}) : super(key: key);
 
-  final TextEditingController nameController = TextEditingController(text: '');
   final TextEditingController emailController = TextEditingController(text: '');
   final TextEditingController passwordController =
       TextEditingController(text: '');
-  final TextEditingController hobbyController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +18,7 @@ class SignUpPage extends StatelessWidget {
       return Container(
         margin: EdgeInsets.only(top: 30),
         child: Text(
-          'Join us and get\nyour next jouney',
+          'Sign In with your\nexisting account',
           style: blackTextStyle.copyWith(
             fontSize: 24,
             fontWeight: semiBold,
@@ -30,18 +28,10 @@ class SignUpPage extends StatelessWidget {
     }
 
     Widget inputSection() {
-      Widget nameInput() {
-        return CustomTextFormField(
-          title: 'Name',
-          hintText: 'Your Name',
-          controller: nameController,
-        );
-      }
-
       Widget emailInput() {
         return CustomTextFormField(
           title: 'Email Address',
-          hintText: 'Email',
+          hintText: 'Your email address',
           controller: emailController,
         );
       }
@@ -49,17 +39,9 @@ class SignUpPage extends StatelessWidget {
       Widget passwordInput() {
         return CustomTextFormField(
           title: 'Password',
-          hintText: 'Password',
-          controller: passwordController,
+          hintText: 'Your password',
           obscureText: true,
-        );
-      }
-
-      Widget hobbyInput() {
-        return CustomTextFormField(
-          title: 'Hobby',
-          hintText: 'Hobby',
-          controller: hobbyController,
+          controller: passwordController,
         );
       }
 
@@ -68,7 +50,7 @@ class SignUpPage extends StatelessWidget {
           listener: (context, state) {
             if (state is AuthSuccess) {
               Navigator.pushNamedAndRemoveUntil(
-                  context, '/bonus', (route) => false);
+                  context, '/main', (route) => false);
             } else if (state is AuthFailed) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -86,13 +68,12 @@ class SignUpPage extends StatelessWidget {
             }
 
             return CustomButton(
-              title: 'Sign Up',
+              title: 'Sign In',
               onPressed: () {
-                context.read<AuthCubit>().signUp(
-                    name: nameController.text,
-                    email: emailController.text,
-                    password: passwordController.text,
-                    hobby: hobbyController.text);
+                context.read<AuthCubit>().signIn(
+                      email: emailController.text,
+                      password: passwordController.text,
+                    );
               },
             );
           },
@@ -113,20 +94,18 @@ class SignUpPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            nameInput(),
             emailInput(),
             passwordInput(),
-            hobbyInput(),
             submitButton(),
           ],
         ),
       );
     }
 
-    Widget signInButton() {
+    Widget tacButton() {
       return GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, '/sign-in');
+          Navigator.pushNamed(context, '/sign-up');
         },
         child: Container(
           alignment: Alignment.center,
@@ -135,7 +114,7 @@ class SignUpPage extends StatelessWidget {
             bottom: 73,
           ),
           child: Text(
-            'Have an Account? Sign In',
+            'Don\'t have an account? Sign Up',
             style: greyTextStyle.copyWith(
               fontSize: 16,
               fontWeight: light,
@@ -156,7 +135,7 @@ class SignUpPage extends StatelessWidget {
           children: [
             title(),
             inputSection(),
-            signInButton(),
+            tacButton(),
           ],
         ),
       ),

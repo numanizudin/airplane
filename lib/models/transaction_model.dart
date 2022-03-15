@@ -24,6 +24,20 @@ class TransactionModel extends Equatable {
     this.grandTotal = 0,
   });
 
+  factory TransactionModel.fromJson(String id, Map<String, dynamic> json) =>
+      TransactionModel(
+        destination: DestinationModel.fromJson(
+            json['destination']['id'], json['destination']),
+        id: id,
+        amountOfTraveler: json['amountOfTraveler'],
+        selectedSeats: json['selectedSeats'],
+        insurance: json['insurance'],
+        refundable: json['refundable'],
+        vat: json['vat'],
+        price: json['price'],
+        grandTotal: json['grandTotal'],
+      );
+
   @override
   List<Object?> get props => [
         destination,

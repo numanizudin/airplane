@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Assalamualikum,\n${state.user.name}',
+                          'Hallo,\n${state.user.name}',
                           style: blackTextStyle.copyWith(
                             fontSize: 24,
                             fontWeight: semiBold,
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         image: AssetImage(
-                          'assets/image_profile.png',
+                          'assets/travis.jpg',
                         ),
                       ),
                     ),

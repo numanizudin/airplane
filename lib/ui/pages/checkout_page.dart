@@ -63,7 +63,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Cipeles',
+                      transaction.destination.name,
                       style: greyTextStyle.copyWith(
                         fontWeight: light,
                       ),
